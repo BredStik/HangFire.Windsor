@@ -36,3 +36,8 @@ public partial class MyApplication : System.Web.HttpApplication
     }
 }
 ```
+
+Disclaimer
+------
+
+This is pretty much a conversion of [HangFire.Ninject](https://github.com/odinserj/HangFire.Ninject) including this Readme!
