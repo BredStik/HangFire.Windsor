@@ -32,7 +32,7 @@ public partial class MyApplication : System.Web.HttpApplication
     _container = new WindsorContainer();            
 
     /* Register types */
-    /* container.Register(Component.For<ISomeInterface>().ImplementedBy<SomeImplementation>()); */
+    /* _container.Register(Component.For<ISomeInterface>().ImplementedBy<SomeImplementation>()); */
 		
 		JobActivator.Current = new WindsorJobActivator(_container.Kernel);
     }
