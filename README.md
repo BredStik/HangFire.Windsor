@@ -25,14 +25,16 @@ JobActivator class:
 // Global.asax.cs or other file that initializes Windsor bindings.
 public partial class MyApplication : System.Web.HttpApplication
 {
+    private WindsorContainer _container;
+
     protected void Application_Start()
     {
-    var container = new WindsorContainer();            
+    _container = new WindsorContainer();            
 
     /* Register types */
     /* container.Register(Component.For<ISomeInterface>().ImplementedBy<SomeImplementation>()); */
 		
-		JobActivator.Current = new WindsorJobActivator(container.Kernel);
+		JobActivator.Current = new WindsorJobActivator(_container.Kernel);
     }
 }
 ```
