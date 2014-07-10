@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangFire.Windsor", "HangFire.Windsor\HangFire.Windsor.csproj", "{28AE5466-197E-4B82-BF6F-B6B567AE3313}"
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangfire.Windsor", "HangFire.Windsor\Hangfire.Windsor.csproj", "{28AE5466-197E-4B82-BF6F-B6B567AE3313}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C7022B8C-A8E8-4CE2-94E7-D95A77DCC06A}"
 	ProjectSection(SolutionItems) = preProject
@@ -10,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C7022B
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangFire.Windsor.Tests", "HangFire.Windsor.Tests\HangFire.Windsor.Tests.csproj", "{0497FED6-3B44-47E2-BAD2-506F109E8D9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangfire.Windsor.Tests", "HangFire.Windsor.Tests\Hangfire.Windsor.Tests.csproj", "{0497FED6-3B44-47E2-BAD2-506F109E8D9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

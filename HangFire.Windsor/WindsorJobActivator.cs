@@ -4,7 +4,7 @@ using System;
 namespace Hangfire.Windsor
 {
     /// <summary>
-    /// HangFire Job Activator based on Castle Windsor IoC Container.
+    /// Hangfire Job Activator based on Castle Windsor IoC Container.
     /// </summary>
     public class WindsorJobActivator: JobActivator
     {

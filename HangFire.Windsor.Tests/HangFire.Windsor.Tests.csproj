@@ -6,8 +6,8 @@
     <ProjectGuid>{0497FED6-3B44-47E2-BAD2-506F109E8D9D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HangFire.Windsor.Tests</RootNamespace>
-    <AssemblyName>HangFire.Windsor.Tests</AssemblyName>
+    <RootNamespace>Hangfire.Windsor.Tests</RootNamespace>
+    <AssemblyName>Hangfire.Windsor.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -103,9 +103,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HangFire.Windsor\HangFire.Windsor.csproj">
+    <ProjectReference Include="..\HangFire.Windsor\Hangfire.Windsor.csproj">
       <Project>{28ae5466-197e-4b82-bf6f-b6b567ae3313}</Project>
-      <Name>HangFire.Windsor</Name>
+      <Name>Hangfire.Windsor</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
