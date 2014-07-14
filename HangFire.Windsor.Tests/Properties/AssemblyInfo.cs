@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("HangFire.Windsor.Tests")]
+[assembly: AssemblyTitle("Hangfire.Windsor.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SNC-Lavalin")]
-[assembly: AssemblyProduct("HangFire.Windsor.Tests")]
+[assembly: AssemblyProduct("Hangfire.Windsor.Tests")]
 [assembly: AssemblyCopyright("Copyright © SNC-Lavalin 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

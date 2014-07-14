@@ -1,13 +1,10 @@
 ﻿using Castle.MicroKernel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace HangFire.Windsor
+namespace Hangfire.Windsor
 {
     /// <summary>
-    /// HangFire Job Activator based on Castle Windsor IoC Container.
+    /// Hangfire Job Activator based on Castle Windsor IoC Container.
     /// </summary>
     public class WindsorJobActivator: JobActivator
     {

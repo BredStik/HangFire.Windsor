@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Castle.MicroKernel;
 using FakeItEasy;
 
-namespace HangFire.Windsor.Tests
+namespace Hangfire.Windsor.Tests
 {
     [TestClass]
     public class WindsorJobActivatorTests
