@@ -7,8 +7,8 @@
     <ProjectGuid>{28AE5466-197E-4B82-BF6F-B6B567AE3313}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Hangfire.Windsor</RootNamespace>
-    <AssemblyName>Hangfire.Windsor</AssemblyName>
+    <RootNamespace>HangFire.Windsor</RootNamespace>
+    <AssemblyName>HangFire.Windsor</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>

@@ -11,6 +11,6 @@
     <description>$description$</description>
     <releaseNotes>Initial release.</releaseNotes>
     <copyright>Copyright 2014</copyright>
-    <tags>Hangfire Castle Windsor</tags>
+    <tags>HangFire Castle Windsor</tags>
   </metadata>
 </package>
