@@ -12,5 +12,9 @@
     <releaseNotes>Initial release.</releaseNotes>
     <copyright>Copyright 2014</copyright>
     <tags>HangFire Castle Windsor</tags>
+    <dependencies>
+      <dependency id="Castle.Windsor" version="3.3.0" />
+      <dependency id="Hangfire.Core" version="[1.5.6,2.0)" />
+    </dependencies>
   </metadata>
 </package>
