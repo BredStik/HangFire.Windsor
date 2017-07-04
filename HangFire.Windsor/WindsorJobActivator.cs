@@ -1,5 +1,6 @@
 ﻿using Castle.MicroKernel;
 using System;
+using Hangfire;
 
 namespace Hangfire.Windsor
 {
@@ -30,6 +31,21 @@ namespace Hangfire.Windsor
         public override object ActivateJob(Type jobType)
         {
             return _kernel.Resolve(jobType);
+        }
+
+        public override JobActivatorScope BeginScope()
+        {
+            return new WindsorJobActivatorScope(this);
+        }
+
+        public override JobActivatorScope BeginScope(JobActivatorContext context)
+        {
+            return new WindsorJobActivatorScope(this);
+        }        
+
+        public void ReleaseJob(object job)
+        {
+            _kernel.ReleaseComponent(job);
         }
     }
 }
