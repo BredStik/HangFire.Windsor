@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using Castle.MicroKernel;
+using Castle.MicroKernel.Lifestyle;
 
 namespace Hangfire.Windsor
 {
     public class WindsorJobActivatorScope : JobActivatorScope
     {
         private readonly WindsorJobActivator _activator;
-        private readonly List<object> _resolved = new List<object>();
+        private readonly IList<object> _resolved = new List<object>();
 
         public WindsorJobActivatorScope(WindsorJobActivator activator)
         {
@@ -26,7 +28,6 @@ namespace Hangfire.Windsor
         {
             foreach (var instance in _resolved)
             {
-                (instance as IDisposable)?.Dispose();
                 _activator.ReleaseJob(instance);
             }
         }

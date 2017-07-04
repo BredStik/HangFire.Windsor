@@ -1,5 +1,6 @@
 ﻿using Castle.MicroKernel;
 using System;
+using Castle.MicroKernel.Lifestyle;
 using Hangfire;
 
 namespace Hangfire.Windsor
@@ -18,7 +19,7 @@ namespace Hangfire.Windsor
         /// of classes during job activation process.</param>
         public WindsorJobActivator(IKernel kernel)
         {
-            if (kernel == null) throw new ArgumentNullException("kernel");
+            if (kernel == null) throw new ArgumentNullException(nameof(kernel));
 
             _kernel = kernel;
         }
@@ -33,6 +34,7 @@ namespace Hangfire.Windsor
             return _kernel.Resolve(jobType);
         }
 
+        [Obsolete]
         public override JobActivatorScope BeginScope()
         {
             return new WindsorJobActivatorScope(this);
