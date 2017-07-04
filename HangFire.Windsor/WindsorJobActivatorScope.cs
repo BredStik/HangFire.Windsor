@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hangfire.Windsor
 {
     public class WindsorJobActivatorScope : JobActivatorScope
     {
         private readonly WindsorJobActivator _activator;
-        private readonly List<Object> _resolved = new List<Object>();
+        private readonly List<object> _resolved = new List<object>();
 
         public WindsorJobActivatorScope(WindsorJobActivator activator)
         {
