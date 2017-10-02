@@ -9,9 +9,7 @@
     <projectUrl>https://github.com/BredStik/HangFire.Windsor</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Properly dispose of disposable jobs
-Updated to Hangfire.Core 1.6.14
-Removed unused dependencies</releaseNotes>
+    <releaseNotes>Fixed nuget dependency mismatch on Castle.Windsor 3.3.0 instead of 3.4.0</releaseNotes>
     <copyright>Copyright 2014</copyright>
     <tags>HangFire Castle Windsor</tags>
     <dependencies>

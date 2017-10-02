@@ -36,7 +36,7 @@ namespace Hangfire.Windsor.Tests
         }
 
         [TestMethod]
-        public void Activator_should_release_job_when_disposed()
+        public void ActivatorScope_should_release_and_dispose_job_when_disposed()
         {
             var container = new WindsorContainer();
 
@@ -71,14 +71,6 @@ namespace Hangfire.Windsor.Tests
 public class JobStub
 {
 
-}
-
-public class DisposableJob : IDisposableJob
-{
-    public void Dispose()
-    {
-        
-    }
 }
 
 public interface IDisposableJob : IDisposable
