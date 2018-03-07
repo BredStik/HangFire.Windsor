@@ -29,12 +29,12 @@ public partial class MyApplication : System.Web.HttpApplication
 
     protected void Application_Start()
     {
-    _container = new WindsorContainer();            
+    	_container = new WindsorContainer();            
 
-    /* Register types */
-    /* _container.Register(Component.For<ISomeInterface>().ImplementedBy<SomeImplementation>()); */
+    	/* Register types */
+    	/* _container.Register(Component.For<ISomeInterface>().ImplementedBy<SomeImplementation>()); */
 		
-		JobActivator.Current = new WindsorJobActivator(_container.Kernel);
+	JobActivator.Current = new WindsorJobActivator(_container.Kernel);
     }
 }
 ```
