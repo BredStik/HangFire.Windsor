@@ -85,6 +85,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Stubs\IDisposableJob.cs" />
+    <Compile Include="Stubs\JobStub.cs" />
+    <Compile Include="Stubs\JobWithScopedDependency.cs" />
+    <Compile Include="Stubs\ExampleDependency.cs" />
     <Compile Include="WindsorJobActivatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -98,6 +102,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
