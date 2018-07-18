@@ -37,12 +37,18 @@ namespace Hangfire.Windsor
         [Obsolete]
         public override JobActivatorScope BeginScope()
         {
-            return new WindsorJobActivatorScope(this);
+            return CreateScope();
+        }
+
+        private WindsorJobActivatorScope CreateScope()
+        {
+            // support scoped lifestyles (https://github.com/castleproject/Windsor/blob/master/docs/lifestyles.md#scoped)
+            return new WindsorJobActivatorScope(this, _kernel.BeginScope());
         }
 
         public override JobActivatorScope BeginScope(JobActivatorContext context)
         {
-            return new WindsorJobActivatorScope(this);
+            return CreateScope();
         }        
 
         public void ReleaseJob(object job)

@@ -6,12 +6,16 @@ namespace Hangfire.Windsor
     public class WindsorJobActivatorScope : JobActivatorScope
     {
         private readonly WindsorJobActivator _activator;
+        private readonly IDisposable _containerScope;
         private readonly IList<object> _resolved = new List<object>();
 
-        public WindsorJobActivatorScope(WindsorJobActivator activator)
+        public WindsorJobActivatorScope(WindsorJobActivator activator, IDisposable containerScope)
         {
             if (activator == null) throw new ArgumentNullException(nameof(activator));
+            if (containerScope == null) throw new ArgumentNullException(nameof(containerScope));
+
             _activator = activator;
+            _containerScope = containerScope;
         }
 
         public override object Resolve(Type type)
@@ -24,9 +28,16 @@ namespace Hangfire.Windsor
 
         public override void DisposeScope()
         {
-            foreach (var instance in _resolved)
+            try
             {
-                _activator.ReleaseJob(instance);
+                foreach (var instance in _resolved)
+                {
+                    _activator.ReleaseJob(instance);
+                }
+            }
+            finally
+            {
+                _containerScope.Dispose();
             }
         }
     }
