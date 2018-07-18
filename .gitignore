@@ -175,3 +175,8 @@ UpgradeLog*.htm
 # Microsoft Fakes
 FakesAssemblies/
 </pre></body></html>
+
+#nuget packages
+*.nupkg
+
+.vs/
