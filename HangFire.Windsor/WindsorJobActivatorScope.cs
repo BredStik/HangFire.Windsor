@@ -11,11 +11,8 @@ namespace Hangfire.Windsor
 
         public WindsorJobActivatorScope(WindsorJobActivator activator, IDisposable containerScope)
         {
-            if (activator == null) throw new ArgumentNullException(nameof(activator));
-            if (containerScope == null) throw new ArgumentNullException(nameof(containerScope));
-
-            _activator = activator;
-            _containerScope = containerScope;
+            _activator = activator ?? throw new ArgumentNullException(nameof(activator));
+            _containerScope = containerScope ?? throw new ArgumentNullException(nameof(containerScope));
         }
 
         public override object Resolve(Type type)

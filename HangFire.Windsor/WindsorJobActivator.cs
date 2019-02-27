@@ -1,7 +1,6 @@
 ﻿using Castle.MicroKernel;
 using System;
 using Castle.MicroKernel.Lifestyle;
-using Hangfire;
 
 namespace Hangfire.Windsor
 {

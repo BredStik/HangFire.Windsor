@@ -1,25 +1,34 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Castle.MicroKernel;
 using Castle.MicroKernel.Lifestyle;
 using FakeItEasy;
 using Castle.Windsor;
 using Castle.MicroKernel.Registration;
 using Hangfire.Windsor.Tests.Stubs;
+using Xunit;
 
 namespace Hangfire.Windsor.Tests
 {
-    [TestClass]
     public class WindsorJobActivatorTests
     {
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
+        [Fact]
         public void New_activator_given_null_kernel_should_throw_ArgumentNullException()
         {
-            var activator = new WindsorJobActivator(null);
+            try
+            {
+                var activator = new WindsorJobActivator(null);
+            }
+            catch(ArgumentNullException exc)
+            {
+
+                Assert.NotNull(exc);
+                return;
+            }
+
+            throw new Exception("Should have thrown ArgumentNullException");            
         }
 
-        [TestMethod]
+        [Fact]
         public void New_activator_given_kernel_should_call_kernel_to_resolve_job_type()
         {
             var jobType = typeof(JobStub);
@@ -34,10 +43,10 @@ namespace Hangfire.Windsor.Tests
 
             A.CallTo(() => kernel.Resolve(jobType)).MustHaveHappened();
 
-            Assert.AreEqual(actualJob, returnedJob);
+            Assert.Equal(actualJob, returnedJob);
         }
 
-        [TestMethod]
+        [Fact]
         public void ActivatorScope_should_release_and_dispose_job_when_disposed()
         {
             var container = new WindsorContainer();
@@ -62,16 +71,16 @@ namespace Hangfire.Windsor.Tests
                 var resolvedJob = scope.Resolve(typeof(IDisposableJob)) as IDisposableJob;
 
                 // As long as we're in the scope, windsor should track the component
-                Assert.IsTrue(container.Kernel.ReleasePolicy.HasTrack(resolvedJob));
+                Assert.True(container.Kernel.ReleasePolicy.HasTrack(resolvedJob));
             }
 
             // When we leave the scope windsor should stop tracking the resolved job
-            Assert.IsFalse(container.Kernel.ReleasePolicy.HasTrack(job));
+            Assert.False(container.Kernel.ReleasePolicy.HasTrack(job));
 
             A.CallTo(() => job.Dispose()).MustHaveHappened();
         }
 
-        [TestMethod]
+        [Fact]
         public void ActivatorScope_should_release_and_dispose_scoped_job_when_disposed()
         {
             var container = new WindsorContainer();
@@ -94,16 +103,16 @@ namespace Hangfire.Windsor.Tests
             {
                 // Resolve the new job
                 var resolvedJob = scope.Resolve(typeof(IDisposableJob)) as IDisposableJob;
-                Assert.IsNotNull(resolvedJob);
+                Assert.NotNull(resolvedJob);
                 
             }
 
-            Assert.IsNotNull(job, "job was not released by container");
+            Assert.NotNull(job);
 
             A.CallTo(() => job.Dispose()).MustHaveHappened();
         }
 
-        [TestMethod]
+        [Fact]
         public void Experiment_windsor_scoped_service_registration()
         {
             using (var container = new WindsorContainer())
@@ -120,22 +129,20 @@ namespace Hangfire.Windsor.Tests
                 {
                     var job1 = container.Resolve<JobWithScopedDependency>();
                     var job2 = container.Resolve<JobWithScopedDependency>();
-                    Assert.AreNotSame(job1, job2, 
-                        "assumed JobWithScopedDependency has transient lifestyle");
+                    Assert.NotSame(job1, job2);
 
-                    Assert.AreSame(job1.Dependency, job2.Dependency, 
-                        "assumed ExampleDependency has scoped lifestyle");
+                    Assert.Same(job1.Dependency, job2.Dependency);
 
                     // sanity check
-                    Assert.IsNull(releasedDependency);
+                    Assert.Null(releasedDependency);
                 }
 
-                Assert.IsNotNull(releasedDependency, "service was not released by container");
-                Assert.IsTrue(releasedDependency.IsDisposed, "service was not disposed");
+                Assert.NotNull(releasedDependency);
+                Assert.True(releasedDependency.IsDisposed);
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void ActivatorScope_should_release_scoped_service_dependencies_when_disposed()
         {
             using (var container = new WindsorContainer())
@@ -154,17 +161,16 @@ namespace Hangfire.Windsor.Tests
                 {
                     // Resolve the new job
                     var job = scope.Resolve(typeof(JobWithScopedDependency)) as JobWithScopedDependency;
-                    Assert.IsNotNull(job);
+                    Assert.NotNull(job);
 
-                    Assert.AreSame(job.Dependency, container.Resolve<ExampleDependency>(),
-                        "assumed ExampleDependency has scoped lifestyle");
+                    Assert.Same(job.Dependency, container.Resolve<ExampleDependency>());
 
                     // sanity check
-                    Assert.IsNull(releasedDependency);
+                    Assert.Null(releasedDependency);
                 }
 
-                Assert.IsNotNull(releasedDependency, "service was not released by container");
-                Assert.IsTrue(releasedDependency.IsDisposed, "service was not disposed");
+                Assert.NotNull(releasedDependency);
+                Assert.True(releasedDependency.IsDisposed);
             }
         }
     }
